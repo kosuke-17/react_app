@@ -11,15 +11,48 @@
 <body>
   <h1 class="bg-primary text-white display-4">React</h1>
   <div class="container mt-3">
-    <table class="table">
-      <thead>
-        <tr><th>ID</th><th>name</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>YAMADA-taro</td></tr>
-        <tr><td>2</td><td>TANAKA-hanako</td></tr>
-        <tr><td>3</td><td>SUZUKI-Sachiko</td></tr>
-      </tbody>
-    </table>
+    <div id="root" >wait...</div>
+  </div>
+  <script type="text/babel">
+  let dom= document.querySelector('#root')
+
+  let title = "React page."
+  let message = "メッセージを表示します。"
+
+
+  // msgのスタイル定義
+  const msg = {
+    fontSize:"20pt",
+    fontWeight: "bold",
+    color:"red",
+    border:"1px solid blue"
+  }
+
+  // styleのスタイル定義
+  // printMsg関数に3つの値を引数として渡している
+  let printMsg = function(msg, size, color){
+    const style = {
+      fontSize: size + "pt",
+      fontWeight: '700',
+      color: color,
+      border:"1px solid " + color
+    }
+    return <p style={style}>{msg}</p>
+  }
+
+  let el = (
+    <div>
+      <h4>{title}</h4>
+      <h6>{message}</h6>
+      <div className="alert alert-secondary mt-3">
+        {printMsg('最初のメッセージ', 36, '#fff')}
+        {printMsg('次のメッセージです', 24, '#aaa')}
+        {printMsg('最後のメッセージでした', 12, '#666')}
+      </div>
+    </div>
+  )
+  
+  ReactDOM.render(el, dom)
+  </script>
 </body>
 </html>
