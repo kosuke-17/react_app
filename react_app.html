@@ -19,18 +19,24 @@
   let title = "React page."
   let message = "メッセージを表示します。"
   // バッククウォートで式展開
-  let content = `※これが、trueのときに表示されるメッセージです。
-  ちゃんと表示されていますか?`
+  let content_true = `※これが、trueのときに表示されるメッセージです。`
+  
+  let content_false = `※これが、falseのときの表示です。`
+  
 
-  let flg = false;
+  let flg = true;
 
   let el = (
     <div>
       <h4>{title}</h4>
       <h6>{message}</h6>
-    {flg &&
+    {flg ?
       <div className="alert alert-primary mt-3">
-      <p>{content}</p>
+      <p>{content_true}</p>
+      </div>
+    :
+    <div className="alert alert-primary mt-3">
+      <p>{content_false}</p>
       </div>
     }
     </div>
