@@ -18,27 +18,21 @@
 
   let title = "React page."
   let message = "メッセージを表示します。"
-  // バッククウォートで式展開
-  let content_true = `※これが、trueのときに表示されるメッセージです。`
-  
-  let content_false = `※これが、falseのときの表示です。`
-  
-  let flg = true;
+   
+  let data = [
+    <li className="list-group-item">One</li>,
+    <li className="list-group-item">two</li>,
+    <li className="list-group-item">three</li>
+  ]
 
   // 三項演算子による表示
   let el = (
     <div>
       <h4>{title}</h4>
       <h6>{message}</h6>
-    {flg ?
-      <div className="alert alert-primary mt-3">
-      <p>{content_true}</p>
-      </div>
-    :
-    <div className="alert alert-primary mt-3">
-      <p>{content_false}</p>
-      </div>
-    }
+      <ul className="list-group mt-4">
+        {data}
+        </ul>
     </div>
   )
   
