@@ -26,6 +26,7 @@ function AlertMessage(props) {
     setMydata(data)
   }
 
+
   return <div className="alert alert-primary h5 text-primary">
     <h5 className="mb-4">{JSON.stringify(mydata)}</h5>
     <div className="form-group">
@@ -43,6 +44,7 @@ function AlertMessage(props) {
     <button onClick={onAction} className="btn btn-primary">
       Save it!
     </button>
+
   </div>
 }
 // ベースコンポーネント
