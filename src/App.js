@@ -1,27 +1,53 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
+import usePersist from './Persist'
 
+function AlertMessage(props) {
+  const [name, setName] = useState("")
+  const [mail, setMail] = useState("")
+  const [age, setAge] = useState(0)
+  const [mydata, setMydata] = usePersist("mydata, null")
 
-function useCounter() {
-  const [num, setNum] = useState(0)
-
-  const count = ()=>{
-    setNum(num + 1)
+  const onChangeName = (e)=> {
+    setName(e.target.value)
+  }
+  const onChangeMail = (e)=> {
+    setMail(e.target.value)
+  }
+  const onChangeAge = (e)=> {
+    setAge(e.target.value)
+  }
+  const onAction = (e)=> {
+    const data = {
+      name: name,
+      mail: mail,
+      age: age
+    }
+    setMydata(data)
   }
 
 
-  return [num, count]
-} 
+  return <div className="alert alert-primary h5 text-primary">
+    <h5 className="mb-4">{JSON.stringify(mydata)}</h5>
+    <div className="form-group">
+      <label className="h6">Name</label>
+      <input type="text" onChange={onChangeName} className="form-control" />
+    </div>
+    <div className="form-group">
+      <label className="h6">Mail</label>
+      <input type="text" onChange={onChangeMail} className="form-control" />
+    </div>
+    <div className="form-group">
+      <label className="h6">Age</label>
+      <input type="text" onChange={onChangeAge} className="form-control" />
+    </div>
+    <button onClick={onAction} className="btn btn-primary">
+      Save it!
+    </button>
 
-
-function AlertMessage(props) {
-  const [counter, plus] = useCounter()
-  return <div className="alert alert-primary h5 text-center">
-    <h4>count: {counter} .</h4>
-    <button onClick={plus} className="btn btn-primary">count</button>
   </div>
 }
-
+// ベースコンポーネント
 function App() {
   return (
     <div>
