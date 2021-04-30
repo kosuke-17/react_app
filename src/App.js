@@ -24,7 +24,7 @@ function App() {
       <p>軽減税率(10%) : {tax2} 円</p>
     </div>
     setMsg(res)
-  })
+  }, [tax1, tax2])
 
 
   useEffect(() => {
